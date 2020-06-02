@@ -25,6 +25,6 @@ def CUSUM(model, means, variances, k=1):
 
         # Element-wise maximum/minimum where (ignore NaN)
         high[i] = np.fmax(mask, high[i - 1] + value - k)
-        low[i] = np.fmin(mask, low[i - 1] + value + k)
+        low[i] = np.fmax(mask, low[i - 1] - value - k)
 
     return high, low

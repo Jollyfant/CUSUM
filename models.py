@@ -18,7 +18,7 @@ class Model():
       self.frame = pd.read_csv(filepath, sep="\t", header=0)
 
       # No decimation: filter instead?
-      self.frame = self.frame.iloc[1::10, :]
+      # self.frame = self.frame.iloc[1::10, :]
 
   @property
   def values(self):
