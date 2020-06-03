@@ -37,7 +37,7 @@ if __name__ == "__main__":
   # DEMO PLOTTING ANALYSIS #
   #------------------------#
 
-  # Create a simple parameter model using a Pandas data frame: can be a PolynomialModel too
+  # Create a simple data model using a Pandas data frame
   model = Model(filepath)
 
   # Decimation the model

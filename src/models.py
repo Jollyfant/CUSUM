@@ -5,7 +5,7 @@ import numpy as np
 class Model():
 
     """
-    Class MedianModel
+    Class Model
     Base class for CUSUM analysis models
     """
 
@@ -34,7 +34,7 @@ class Model():
     def simple(self, model="median", window_length=100):
 
         """
-        Def SimpleModel.estimate
+        Def Model.simple
         Prediction for a simple model
         """
 
@@ -53,7 +53,7 @@ class Model():
     def polynomial(self, model="linear", window_length=100):
 
         """
-        Def PolynomialModel.estimate
+        Def Model.polynomial
         Predicts
         """
 
