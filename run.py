@@ -18,7 +18,7 @@
 
 """
 
-from src.models import Model
+from src.model import Model
 from src.plot import plotCUSUMGraph, plotEOFEigenvalues, plotEOFEigenvectors, plotModel
 from src.cusum import CUSUM
 from src.eof import EOF
@@ -55,7 +55,7 @@ if __name__ == "__main__":
   means, variances = model.simple(model="mean", window_length=500)
 
   # Get the upper and lower limits from the data frames
-  high, low = CUSUM(model.frame, means, variances, k=1)
+  high, low = CUSUM(model, means, variances, k=1)
 
   # Show the graph taking an e.g. (mean, all, median) model of all high / low thresholds
   plotCUSUMGraph(high, low, mode="mean")
@@ -82,10 +82,10 @@ if __name__ == "__main__":
   model.normalise()
 
   # Get the rolling means and variances (simple model)
-  w, v = EOF(model.frame, normalise=True)
+  w, v = EOF(model, normalise=True)
 
   # Show weight of eigenvalues
   plotEOFEigenvalues(w)
 
-  # Plot EOF PCA
+  # Plot EOF PCA with cutoff eigenvalues < 5%
   plotEOFEigenvectors(w, v, model, weight_cutoff=0.05)

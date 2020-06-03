@@ -1,6 +1,6 @@
 import numpy as np
 
-def EOF(frame, normalise=True):
+def EOF(model, normalise=True):
 
     """
     Def EOFModel.estimate
@@ -8,7 +8,7 @@ def EOF(frame, normalise=True):
     """
 
     # Eigendecomposition of the covariance matrix
-    w, v = np.linalg.eigh(frame.cov())
+    w, v = np.linalg.eigh(model.frame.cov())
 
     # Normalise the eigenvalues
     if normalise:

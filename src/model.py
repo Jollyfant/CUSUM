@@ -12,7 +12,7 @@ class Model():
     # Read MEMS coordinates
     coordinates = np.loadtxt("./data/coordinates.txt")
 
-    def __init__(self, filepath, decimate=0):
+    def __init__(self, filepath):
 
         """
         Def Model.__init__

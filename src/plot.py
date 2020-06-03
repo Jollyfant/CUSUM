@@ -134,6 +134,7 @@ def plotModel(model, mode="all", window_length=100):
         plotQuantile(mean, 0.021, "lightgray")
         plotQuantile(mean, 0.136, "darkgray")
         plotQuantile(mean, 0.341, "gray")
+        plt.plot(mean.median(axis=1).values, color="black")
     else:
         raise ValueError("Unknown mode type requested.")
 

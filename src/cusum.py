@@ -8,13 +8,13 @@ def CUSUM(model, means, variances, k=1):
     """
 
     # Normalise the values (CUSUM algo) by subtracting & dividing data frames
-    normalised = (model - means) / np.sqrt(variances)
+    normalised = (model.frame - means) / np.sqrt(variances)
 
     # Containers for CHigh and CLow
     high, low = np.zeros(normalised.shape), np.zeros(normalised.shape)
 
     # Mask for nan values
-    mask = np.zeros(model.columns.shape)
+    mask = np.zeros(model.frame.columns.shape)
 
     # CUSUM algorithm
     for i, value in enumerate(normalised.values):
