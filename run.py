@@ -39,9 +39,10 @@ if __name__ == "__main__":
 
   # Create a simple data model using a Pandas data frame
   model = Model(filepath)
+  model.update(Model(filepath))
 
   # Decimation the model
-  # model.decimate(10)
+  deci = model.decimate(10)
 
   # Show the data in the model
   plotModel(model, mode="mean", window_length=100)
