@@ -18,7 +18,9 @@
 
 """
 
+from src.geometry import Grid
 from src.model import Model
+from src.forward import singleAscendingSource
 from src.plot import plotCUSUMGraph, plotEOFEigenvalues, plotEOFEigenvectors, plotModel
 from src.cusum import CUSUM
 from src.eof import EOF
@@ -29,6 +31,26 @@ if __name__ == "__main__":
   Def __main__
   NEWTON-g algorithms for data mining multiple gravimeter traces 
   """
+
+  #-----------------------#
+  # FORWARD MODELING DEMO #
+  #-----------------------#
+
+  # MEMS stations locations on flat surface: todo fix with elevation
+  x, y = Model.coordinates.T
+
+  # Simple grid spacing and npoints (x, y): no z
+  grid = Grid(x, y, 0)
+
+  # Number of timesteps (length) and source model
+  model = Model(grid.solveSteps(1000, singleAscendingSource))
+
+  # Show
+  plotModel(model, mode="mean", window_length=100)
+
+  #--------------#
+  # INV ANALYSIS #
+  #--------------#
 
   # Data path: csv gravimeter data
   filepath = "./data/gravity.csv"

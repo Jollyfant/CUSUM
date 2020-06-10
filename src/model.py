@@ -20,6 +20,8 @@ class Model():
         """
 
         # Either set the frame or load from disk
+        if isinstance(frame, np.ndarray):
+            self.frame = pd.DataFrame(frame)
         if isinstance(frame, pd.DataFrame):
             self.frame = frame
         elif isinstance(frame, str):
